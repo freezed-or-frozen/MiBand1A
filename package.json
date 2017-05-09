@@ -1,0 +1,11 @@
+{
+    "name": "mi_band_1a",
+    "description": "node.js lib for the MiBand 1A",
+    "version": "0.1.0",
+    "main": "index.js",
+    "author": "Sandeep Mistry <sandeep.mistry@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "noble": "~1.8"
+    }
+}
