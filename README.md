@@ -1,2 +1,2 @@
 # MiBand1A
-node.js lib to the Xiami Mi Band 1A fitness tracker
+A node.js lib to the Xiaomi Mi Band 1A fitness tracker using the excellent [noble-device](https://github.com/sandeepmistry/noble-device) API
