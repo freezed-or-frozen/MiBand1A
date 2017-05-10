@@ -1,7 +1,7 @@
 {
     "name": "mi-band-1a",
     "description": "A node.js lib for the Xiaomi Mi Band 1A fitness tracker",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "main": "index.js",
     "author": "freezed-or-frozen <freezed.or.frozen@gmail.com>",
     "license": "GPLv3",
