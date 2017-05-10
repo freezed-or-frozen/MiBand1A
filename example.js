@@ -7,7 +7,7 @@
 
 // Add module
 var mb1a = require('./index');
-//var mb1a = require('MiBand1A');
+//var mb1a = require('mi-band-1a');
 
 /*
 // Unit tests functions
@@ -45,6 +45,7 @@ function onDiscover(ble_device) {
     // Connect and setup with the Mi Band 1A
     ble_device.connectAndSetUp(function(error) {
         console.log(' -> Connected to ' + ble_device._peripheral.id);
+
 
         // Subscribe to some notifications (NOTIFICATION & ACTIVITY_DATA)
         ble_device.notifyActivityData(function() {
@@ -86,6 +87,8 @@ function onDiscover(ble_device) {
             console.log('   + status (1=low, 2=charging, 3=full, 4=not charging): ' + status);
         });
 
+
+
         // Fetch activity data
         ble_device.fetchActivityData(function() {
             console.log(' -> Fetch activity data');
@@ -94,7 +97,16 @@ function onDiscover(ble_device) {
         // Read steps
         ble_device.readSteps(function(error, steps) {
             console.log(' -> Read steps : ' + steps);
+
+            // Vibrate to indicate, data transfer is done
+            ble_device.vibrate(function(error) {
+                console.log(' -> Vibrate ');
+            });
         });
+
+
+
+
 
         // After 10s...
         setTimeout(function() {

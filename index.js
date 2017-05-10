@@ -1,5 +1,5 @@
 /**
- * @file Source code of the mi_band_1a module
+ * @file Source code of the mi-band-1a module
  * @author David SALLE
  * @version 0.1.0
  *
@@ -54,6 +54,7 @@ NobleDevice.Util.inherits(MiBand1A, NobleDevice);
 // add the ones your device provides
 //NobleDevice.Util.mixin(MiBand1A, NobleDevice.BatteryService);
 //NobleDevice.Util.mixin(MiBand1A, NobleDevice.DeviceInformationService);
+//NobleDevice.Util.mixin(MiBand1A, NobleDevice.Alert);
 
 
 /**
@@ -312,6 +313,36 @@ MiBand1A.prototype.readSteps = function(callbackWhenDone) {
 		callbackWhenDone(error, steps);
 	}.bind(this));
 };
+
+
+/**
+ * Start and stop vibration
+ * @param {function} Callback function to handle data
+ * @return nothing
+ */
+MiBand1A.prototype.vibrate = function(callbackWhenDone) {
+	// Prepare actions
+    //var startVibration = new Buffer([0x08, 0x01]);
+	//var stopVibration = new Buffer([0x13]);
+	var startVibration = new Buffer([0x01]);
+	var stopVibration = new Buffer([0x00]);
+
+	// Start vibration (write with no response asked, so true parameter)
+    this._peripheral.writeHandle('0x0053', startVibration, true, callbackWhenDone);
+
+	// After 500ms...
+	setTimeout(function() {
+		myEmitter.emit('stopVibration');
+	}, 500);
+
+	myEmitter.on('stopVibration', () => {
+		// ...Stop vibration (write with no response asked, so true parameter)
+		this._peripheral.writeHandle('0x0053', stopVibration, true, callbackWhenDone);
+	}.bind(this));
+
+
+};
+
 
 
 /******************************************************************************/

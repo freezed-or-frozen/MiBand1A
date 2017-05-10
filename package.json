@@ -1,11 +1,11 @@
 {
-    "name": "mi_band_1a",
-    "description": "node.js lib for the MiBand 1A",
+    "name": "mi-band-1a",
+    "description": "A node.js lib for the Xiaomi Mi Band 1A fitness tracker",
     "version": "0.1.0",
     "main": "index.js",
-    "author": "Sandeep Mistry <sandeep.mistry@gmail.com>",
-    "license": "MIT",
+    "author": "freezed-or-frozen <freezed.or.frozen@gmail.com>",
+    "license": "GPLv3",
     "dependencies": {
-        "noble": "~1.8"
+        "noble-device": "~1.4"
     }
 }
