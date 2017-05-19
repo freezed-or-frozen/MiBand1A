@@ -1,7 +1,7 @@
 /**
  * @file Source code of the mi-band-1a module
  * @author David SALLE
- * @version 0.1.0
+ * @version 0.1.3
  *
  * https://github.com/sandeepmistry/noble-device
  */
@@ -300,12 +300,12 @@ MiBand1A.prototype.readSteps = function(callbackWhenDone) {
 		// Send all ack messages to Mi Band 1A (to delete or not the data inside)
 		for (var j=0; j<ack_messages.length; j++) {
 			this._peripheral.writeHandle('0x001b', ack_messages[j], false, function(error) {
-				//console.log(' -> write CONTROL_POINT ff05, ack data transfer (' + ack_messages[j].toString('hex') + ') : ' + error);
+				console.log(' -> write CONTROL_POINT ff05, ack data transfer (' + ack_messages[j].toString('hex') + ') : ' + error);
 			});
 		}
 
 		// Analyse and decode activity data to read steps
-		//console.log(' -> Start analysing and decoding activity data');
+		console.log(' -> Start analysing and decoding activity data');
 		var steps = analyse_activity_data(activity_data);
 		var error = 0;
 

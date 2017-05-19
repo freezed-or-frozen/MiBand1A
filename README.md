@@ -13,3 +13,5 @@ Have a look at the example.js file to see how to use the lib.
 ## Release History
   * 0.1.0 Initial release
   * 0.1.1 Add vibration
+  * 0.1.2 Npm upgrade/upload test
+  * 0.1.3 Fix multiple connect bug 
